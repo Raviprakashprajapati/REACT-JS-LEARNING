@@ -1,0 +1,39 @@
+function reducer(state,action){
+
+    if(action.type=="add")
+    {
+        return state+1;
+    }
+    else if(action.type=="sub")
+    {
+        return state-1;
+    }
+
+}
+
+export default reducer
+
+
+---------------------------------------
+    <div>
+        <h3>Your number is ={state[0]} </h3>
+        <button onClick={handleAdd} >Add</button>
+        <button onClick={handleSub} >Sub</button>
+      
+    </div>
+
+
+
+
+
+    const [state,dispatch] = useReducer(reducer,[]);
+
+    function handleAdd(){
+        dispatch({type:"add",payload:{prevState:state}})
+    }
+    function handleSub(){
+        dispatch({type:"sub",payload:{prevState:state}})
+    }
+
+
+
